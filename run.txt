@@ -2,10 +2,10 @@ adb tcpip 5555
 
 docker build -t react-native_dev .
 
-docker run -it --name react-native_dev -v "${PWD}:/home/developer/repo" -v "C:/Users/atqamz/.android:/home/developer/.android" -p 5555:5555 -p 8080:8080 react-native_dev
+docker run -it --name react-native_dev -v "${PWD}:/home/developer/repo" -v "${HOME}/.android:/home/developer/.android" react-native_dev
 
 adb connect host.docker.internal:5555
 
-npx react-native start --host 0.0.0.0 --port 8080
-
-npx react-native run-android --port 8080
+npx react-native run-android
+# or
+npx react-native start
